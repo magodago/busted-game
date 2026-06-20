@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs><radialGradient id="bg" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#1A1A2E"/><stop offset="100%" stop-color="#0B0B0F"/></radialGradient></defs>
+  <circle cx="50" cy="50" r="48" fill="url(#bg)" stroke="#2EFFEA" stroke-width="1.5"/>
+  <ellipse cx="50" cy="42" rx="14" ry="16" fill="#C4A882"/>
+  <path d="M32 38 Q40 18 50 22 Q60 18 68 38" fill="none" stroke="#FFD93D" stroke-width="3"/>
+  <path d="M34 36 Q42 16 50 20 Q58 16 66 36" fill="none" stroke="#FF2E88" stroke-width="2" opacity="0.7"/>
+  <circle cx="44" cy="38" r="4" fill="#FFF" opacity="0.8"/>
+  <circle cx="56" cy="38" r="4" fill="#FFF" opacity="0.8"/>
+  <circle cx="44" cy="38" r="2" fill="#2EFFEA"/>
+  <circle cx="56" cy="38" r="2" fill="#2EFFEA"/>
+  <path d="M40 34 Q50 31 60 34" fill="none" stroke="#3A2515" stroke-width="1.5"/>
+  <path d="M43 48 Q50 52 57 48" fill="#FF2E88" fill-opacity="0.5" rx="3"/>
+  <rect x="30" y="68" width="40" height="12" rx="3" fill="#2EFFEA" fill-opacity="0.15"/>
+  <text x="50" y="77" text-anchor="middle" font-size="6" fill="#2EFFEA" font-family="monospace">???</text>
+</svg>

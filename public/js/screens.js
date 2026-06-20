@@ -75,19 +75,19 @@ const BustedScreens = (() => {
     const savedName = localStorage.getItem('busted_player_name');
     if (savedName) $('player-name-input').value = savedName;
 
-    // Avatar selection
-    document.querySelectorAll('.avatar-opt').forEach(el => {
+    // Avatar selection (new SVG row)
+    document.querySelectorAll('.avatar-selector-row .avatar-opt').forEach(el => {
       el.addEventListener('click', () => {
-        document.querySelectorAll('.avatar-opt').forEach(a => a.classList.remove('selected'));
+        document.querySelectorAll('.avatar-selector-row .avatar-opt').forEach(a => a.classList.remove('selected'));
         el.classList.add('selected');
-        $('player-name-input').focus();
       });
     });
 
     // Create room
     $('btn-create').addEventListener('click', () => {
       const name = $('player-name-input').value.trim() || 'Jugador';
-      const avatar = document.querySelector('.avatar-opt.selected')?.dataset.avatar || '😎';
+      const selected = document.querySelector('.avatar-selector-row .avatar-opt.selected');
+      const avatar = selected?.dataset.avatar || '😎';
       localStorage.setItem('busted_player_name', name);
       gameState.playerName = name;
       gameState.playerAvatar = avatar;
@@ -103,7 +103,8 @@ const BustedScreens = (() => {
         return;
       }
       const name = $('player-name-input').value.trim() || 'Jugador';
-      const avatar = document.querySelector('.avatar-opt.selected')?.dataset.avatar || '😎';
+      const selected = document.querySelector('.avatar-selector-row .avatar-opt.selected');
+      const avatar = selected?.dataset.avatar || '😎';
       localStorage.setItem('busted_player_name', name);
       gameState.playerName = name;
       gameState.playerAvatar = avatar;

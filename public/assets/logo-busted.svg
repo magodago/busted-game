@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <defs>
+    <filter id="neonM">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="neonC">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background glow -->
+  <rect x="0" y="0" width="400" height="120" fill="#0B0B0F" rx="8"/>
+
+  <!-- B - Magenta -->
+  <g filter="url(#neonM)">
+    <text x="8" y="82" font-family="'Orbitron', monospace" font-size="82" font-weight="900" fill="#FF2E88" letter-spacing="2">
+      B
+    </text>
+  </g>
+  <text x="8" y="82" font-family="'Orbitron', monospace" font-size="82" font-weight="900" fill="none" stroke="#FF2E88" stroke-width="0.5" opacity="0.3" letter-spacing="2">
+    B
+  </text>
+
+  <!-- U - Cyan -->
+  <g filter="url(#neonC)">
+    <text x="72" y="82" font-family="'Orbitron', monospace" font-size="82" font-weight="900" fill="#2EFFEA" letter-spacing="2">
+      U
+    </text>
+  </g>
+
+  <!-- S - Magenta -->
+  <g filter="url(#neonM)">
+    <text x="138" y="82" font-family="'Orbitron', monospace" font-size="82" font-weight="900" fill="#FF2E88" letter-spacing="2">
+      S
+    </text>
+  </g>
+
+  <!-- T - Cyan -->
+  <g filter="url(#neonC)">
+    <text x="202" y="82" font-family="'Orbitron', monospace" font-size="82" font-weight="900" fill="#2EFFEA" letter-spacing="2">
+      T
+    </text>
+  </g>
+
+  <!-- E - Magenta -->
+  <g filter="url(#neonM)">
+    <text x="258" y="82" font-family="'Orbitron', monospace" font-size="82" font-weight="900" fill="#FF2E88" letter-spacing="2">
+      E
+    </text>
+  </g>
+
+  <!-- D - Cyan -->
+  <g filter="url(#neonC)">
+    <text x="324" y="82" font-family="'Orbitron', monospace" font-size="82" font-weight="900" fill="#2EFFEA" letter-spacing="2">
+      D
+    </text>
+  </g>
+
+  <!-- Subtle badge star -->
+  <polygon points="380,8 385,18 396,20 389,27 391,38 380,33 369,38 371,27 364,20 375,18" fill="#FFD93D" opacity="0.15"/>
+
+  <!-- Bottom line -->
+  <line x1="40" y1="100" x2="360" y2="100" stroke="url(#lineGrad)" stroke-width="0.5" opacity="0.3"/>
+  <defs>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF2E88"/>
+      <stop offset="50%" stop-color="#2EFFEA"/>
+      <stop offset="100%" stop-color="#FF2E88"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Tagline -->
+  <text x="200" y="112" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#6B6B80" letter-spacing="4" text-transform="uppercase">
+    MENTIR SIN QUE TE PILLEN
+  </text>
+</svg>

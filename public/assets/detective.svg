@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg1" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#0B0B0F"/>
+    </radialGradient>
+    <radialGradient id="glow1" cx="50%" cy="40%" r="30%">
+      <stop offset="0%" stop-color="#FF2E88" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FF2E88" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#bg1)" stroke="#FF2E88" stroke-width="1.5"/>
+  <circle cx="50" cy="40" r="20" fill="url(#glow1)"/>
+  <!-- Detective face -->
+  <ellipse cx="50" cy="42" rx="16" ry="18" fill="#2A1F1A"/>
+  <!-- Eyes -->
+  <ellipse cx="44" cy="38" rx="3" ry="2" fill="#FFF"/>
+  <ellipse cx="56" cy="38" rx="3" ry="2" fill="#FFF"/>
+  <circle cx="44" cy="38" r="1.5" fill="#2EFFEA"/>
+  <circle cx="56" cy="38" r="1.5" fill="#2EFFEA"/>
+  <!-- Eyebrows (stern) -->
+  <line x1="40" y1="33" x2="47" y2="35" stroke="#1A1A2E" stroke-width="2"/>
+  <line x1="53" y1="35" x2="60" y2="33" stroke="#1A1A2E" stroke-width="2"/>
+  <!-- Mouth -->
+  <path d="M44 48 Q50 51 56 48" fill="none" stroke="#4A3F3A" stroke-width="1.5"/>
+  <!-- Hat (fedora) -->
+  <ellipse cx="50" cy="27" rx="22" ry="8" fill="#1A1A2E" stroke="#2EFFEA" stroke-width="0.5"/>
+  <rect x="32" y="24" width="36" height="5" rx="2" fill="#1A1A2E" stroke="#2EFFEA" stroke-width="0.5"/>
+  <!-- Badge -->
+  <polygon points="62,55 65,53 68,55 67,58 63,58" fill="#FFD93D" opacity="0.8"/>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs><radialGradient id="bg" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#1A1A2E"/><stop offset="100%" stop-color="#0B0B0F"/></radialGradient></defs>
+  <circle cx="50" cy="50" r="48" fill="url(#bg)" stroke="#FFD93D" stroke-width="1.5"/>
+  <ellipse cx="50" cy="42" rx="15" ry="18" fill="#E8C8A8"/>
+  <path d="M32 30 Q42 24 50 26 Q58 24 68 30" fill="none" stroke="#2A1A0A" stroke-width="2"/>
+  <path d="M34 28 Q42 22 50 24 Q58 22 66 28" fill="none" stroke="#3A2A1A" stroke-width="1.5"/>
+  <ellipse cx="43" cy="38" rx="2.5" ry="2" fill="#FFF"/>
+  <ellipse cx="57" cy="38" rx="2.5" ry="2" fill="#FFF"/>
+  <circle cx="43" cy="38" r="1.5" fill="#4A3520"/>
+  <circle cx="57" cy="38" r="1.5" fill="#4A3520"/>
+  <path d="M40 34 Q50 30 60 34" fill="none" stroke="#3A2515" stroke-width="1.5"/>
+  <path d="M45 46 Q50 44 55 46" fill="none" stroke="#8B5A4A" stroke-width="1"/>
+  <!-- Glasses -->
+  <circle cx="43" cy="38" r="6" fill="none" stroke="#FFD93D" stroke-width="0.8" opacity="0.6"/>
+  <circle cx="57" cy="38" r="6" fill="none" stroke="#FFD93D" stroke-width="0.8" opacity="0.6"/>
+  <line x1="49" y1="38" x2="51" y2="38" stroke="#FFD93D" stroke-width="0.8" opacity="0.6"/>
+  <!-- Cigar -->
+  <rect x="56" y="45" width="10" height="2.5" rx="1" fill="#4A3520"/>
+  <circle cx="67" cy="46" r="1.5" fill="#FF2E88" opacity="0.6"/>
+  <text x="50" y="72" text-anchor="middle" font-size="6" fill="#FFD93D" font-family="monospace" opacity="0.6">MENTE CRIMINAL</text>
+</svg>
