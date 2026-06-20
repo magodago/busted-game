@@ -22,38 +22,65 @@
 
     <!-- SCREEN: HOME -->
     <div id="screen-home" class="screen active">
+      <!-- Animated background layer -->
+      <div class="home-bg">
+        <div class="bg-grid"></div>
+        <div class="bg-evidence-line" style="--angle: 15deg; --delay: 0s;"></div>
+        <div class="bg-evidence-line" style="--angle: -20deg; --delay: 2s;"></div>
+        <div class="bg-evidence-line" style="--angle: 45deg; --delay: 4s;"></div>
+        <!-- Floating evidence markers -->
+        <div class="evidence-marker" style="top: 12%; left: 8%; --delay: 0s;">🔍</div>
+        <div class="evidence-marker" style="top: 25%; right: 10%; --delay: 1.5s;">🔎</div>
+        <div class="evidence-marker" style="bottom: 20%; left: 12%; --delay: 3s;">📋</div>
+        <div class="evidence-marker" style="bottom: 35%; right: 8%; --delay: 4.5s;">🖐️</div>
+        <!-- Police tape corners -->
+        <div class="police-tape top-left"></div>
+        <div class="police-tape top-right"></div>
+        <div class="police-tape bottom-left"></div>
+        <div class="police-tape bottom-right"></div>
+        <!-- Evidence photo pins -->
+        <div class="photo-pin" style="top: 18%; left: 18%; --rot: -8deg; --delay: 0.5s;"></div>
+        <div class="photo-pin" style="top: 22%; right: 20%; --rot: 5deg; --delay: 1.2s;"></div>
+        <div class="photo-pin" style="bottom: 28%; left: 22%; --rot: -3deg; --delay: 2.5s;"></div>
+      </div>
+      <!-- Light sweep -->
+      <div class="light-sweep"></div>
+
       <div class="home-content">
-        <div class="logo-badge">ALPHA</div>
+        <div class="logo-badge">
+          <span class="badge-dot"></span>
+          ALPHA PREVIEW
+          <span class="badge-dot"></span>
+        </div>
         <h1 class="logo">
-          <span class="logo-b">B</span>
-          <span class="logo-u">U</span>
-          <span class="logo-s">S</span>
-          <span class="logo-t">T</span>
-          <span class="logo-e">E</span>
-          <span class="logo-d">D</span>
+          <span class="logo-b" data-letter="B">B</span>
+          <span class="logo-u" data-letter="U">U</span>
+          <span class="logo-s" data-letter="S">S</span>
+          <span class="logo-t" data-letter="T">T</span>
+          <span class="logo-e" data-letter="E">E</span>
+          <span class="logo-d" data-letter="D">D</span>
         </h1>
-        <p class="tagline">El juego de mentir sin que te pillen</p>
+        <p class="tagline">Miente sin que te pillen</p>
         <div class="home-actions">
           <button id="btn-create" class="btn-primary btn-glow">
             <span class="btn-icon">🎯</span>
-            Crear Partida
+            <span class="btn-text">Crear Partida</span>
           </button>
           <div class="join-divider">
             <span class="divider-line"></span>
-            <span class="divider-text">o</span>
+            <span class="divider-text">o únete con código</span>
             <span class="divider-line"></span>
           </div>
           <div class="join-group">
             <input type="text" id="room-code-input" class="input-code" placeholder="CÓDIGO" maxlength="6" autocomplete="off" autocapitalize="characters">
-            <button id="btn-join" class="btn-secondary">
-              <span class="btn-icon">🚪</span>
-              Unirse
+            <button id="btn-join" class="btn-join-secondary">
+              <span class="btn-join-icon">→</span>
             </button>
           </div>
           <div class="name-section">
             <input type="text" id="player-name-input" class="input-name" placeholder="Tu nombre" maxlength="20" autocomplete="off">
             <div class="avatar-selector">
-              <span class="avatar-label">Avatar:</span>
+              <span class="avatar-label">AVATAR</span>
               <div class="avatar-options" id="avatar-options">
                 <span class="avatar-opt selected" data-avatar="😎">😎</span>
                 <span class="avatar-opt" data-avatar="🕵️">🕵️</span>
@@ -61,11 +88,13 @@
                 <span class="avatar-opt" data-avatar="😈">😈</span>
                 <span class="avatar-opt" data-avatar="🤡">🤡</span>
                 <span class="avatar-opt" data-avatar="👽">👽</span>
+                <span class="avatar-opt" data-avatar="🦊">🦊</span>
+                <span class="avatar-opt" data-avatar="🐱">🐱</span>
               </div>
             </div>
           </div>
         </div>
-        <p class="version-text">v1.0 · Sin registro · Sin descarga</p>
+        <p class="version-text">v1.0 · Sin registro · 100% gratis</p>
       </div>
     </div>
 
