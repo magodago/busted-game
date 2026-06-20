@@ -22,8 +22,9 @@
 
     <!-- SCREEN: HOME -->
     <div id="screen-home" class="screen active">
-      <!-- Canvas background (rendered by home-bg.js) -->
-      
+      <!-- Generated background from ComfyUI -->
+      <div class="home-bg-image" style="background-image: url('assets/generated/home_bg_premium.png')"></div>
+
       <!-- Police tape corners -->
       <div class="police-tape top-left"></div>
       <div class="police-tape top-right"></div>
@@ -36,13 +37,13 @@
           ALPHA PREVIEW
           <span class="badge-dot"></span>
         </div>
-        <div class="logo-svg-container">
-          <img src="assets/logo-busted.svg" alt="BUSTED" class="logo-img" id="logo-img">
+        <div class="logo-section">
+          <img src="assets/generated/logo_bg_premium.png" alt="BUSTED" class="logo-display-img" id="logo-display">
         </div>
         <p class="tagline">Miente sin que te pillen</p>
         <div class="home-actions">
-          <button id="btn-create" class="btn-primary btn-glow">
-            <span class="btn-icon">🎯</span>
+          <button id="btn-create" class="btn-primary btn-glow btn-with-badge">
+            <span class="btn-badge-icon"><img src="assets/generated/btn_badge_premium.png" alt=""></span>
             <span class="btn-text">Crear Partida</span>
           </button>
           <div class="join-divider">
@@ -61,12 +62,12 @@
           </div>
         </div>
         <div class="avatar-selector-row" id="avatar-selector-row">
-          <span class="avatar-opt selected" data-avatar="😎" data-asset="char-detective"><img src="assets/detective.svg" class="avatar-svg"></span>
-          <span class="avatar-opt" data-avatar="🤥" data-asset="char-suspect"><img src="assets/suspect.svg" class="avatar-svg"></span>
-          <span class="avatar-opt" data-avatar="😈" data-asset="char-suspect-f"><img src="assets/suspect_f.svg" class="avatar-svg"></span>
-          <span class="avatar-opt" data-avatar="👽" data-asset="char-eccentric"><img src="assets/eccentric.svg" class="avatar-svg"></span>
-          <span class="avatar-opt" data-avatar="🦊" data-asset="char-witness"><img src="assets/witness.svg" class="avatar-svg"></span>
-          <span class="avatar-opt" data-avatar="🐱" data-asset="char-mastermind"><img src="assets/mastermind.svg" class="avatar-svg"></span>
+          <span class="avatar-opt selected" data-avatar="😎" data-asset="char-detective"><img src="assets/generated/char_detective.png" class="avatar-img"></span>
+          <span class="avatar-opt" data-avatar="🤥" data-asset="char-suspect"><img src="assets/generated/char_suspect_m.png" class="avatar-img"></span>
+          <span class="avatar-opt" data-avatar="😈" data-asset="char-suspect-f"><img src="assets/generated/char_suspect_f.png" class="avatar-img"></span>
+          <span class="avatar-opt" data-avatar="👽" data-asset="char-eccentric"><img src="assets/generated/char_eccentric.png" class="avatar-img"></span>
+          <span class="avatar-opt" data-avatar="🦊" data-asset="char-witness"><img src="assets/generated/char_witness.png" class="avatar-img"></span>
+          <span class="avatar-opt" data-avatar="🐱" data-asset="char-mastermind"><img src="assets/generated/char_mastermind.png" class="avatar-img"></span>
         </div>
         <p class="version-text">v1.0 · Sin registro · 100% gratis</p>
       </div>
