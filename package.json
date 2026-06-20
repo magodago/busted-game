@@ -1,0 +1,9 @@
+{
+  "name": "busted-game",
+  "version": "1.0.0",
+  "description": "BUSTED - Social Bluff/Interrogation Game",
+  "scripts": {
+    "start": "cd server && node index.js",
+    "build": "echo 'Static files ready'"
+  }
+}

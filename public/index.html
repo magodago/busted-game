@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0B0B0F">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="BUSTED - El juego social de interrogatorio y mentiras">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>BUSTED</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- NOISE OVERLAY -->
+    <div class="noise-overlay"></div>
+
+    <!-- SCREEN: HOME -->
+    <div id="screen-home" class="screen active">
+      <div class="home-content">
+        <div class="logo-badge">ALPHA</div>
+        <h1 class="logo">
+          <span class="logo-b">B</span>
+          <span class="logo-u">U</span>
+          <span class="logo-s">S</span>
+          <span class="logo-t">T</span>
+          <span class="logo-e">E</span>
+          <span class="logo-d">D</span>
+        </h1>
+        <p class="tagline">El juego de mentir sin que te pillen</p>
+        <div class="home-actions">
+          <button id="btn-create" class="btn-primary btn-glow">
+            <span class="btn-icon">🎯</span>
+            Crear Partida
+          </button>
+          <div class="join-divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">o</span>
+            <span class="divider-line"></span>
+          </div>
+          <div class="join-group">
+            <input type="text" id="room-code-input" class="input-code" placeholder="CÓDIGO" maxlength="6" autocomplete="off" autocapitalize="characters">
+            <button id="btn-join" class="btn-secondary">
+              <span class="btn-icon">🚪</span>
+              Unirse
+            </button>
+          </div>
+          <div class="name-section">
+            <input type="text" id="player-name-input" class="input-name" placeholder="Tu nombre" maxlength="20" autocomplete="off">
+            <div class="avatar-selector">
+              <span class="avatar-label">Avatar:</span>
+              <div class="avatar-options" id="avatar-options">
+                <span class="avatar-opt selected" data-avatar="😎">😎</span>
+                <span class="avatar-opt" data-avatar="🕵️">🕵️</span>
+                <span class="avatar-opt" data-avatar="🤥">🤥</span>
+                <span class="avatar-opt" data-avatar="😈">😈</span>
+                <span class="avatar-opt" data-avatar="🤡">🤡</span>
+                <span class="avatar-opt" data-avatar="👽">👽</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="version-text">v1.0 · Sin registro · Sin descarga</p>
+      </div>
+    </div>
+
+    <!-- SCREEN: LOBBY -->
+    <div id="screen-lobby" class="screen">
+      <div class="lobby-header">
+        <h2 class="lobby-title">SALA DE ESPERA</h2>
+        <div class="room-code-display">
+          <span class="code-label">Código:</span>
+          <span class="code-value" id="room-code-value">------</span>
+          <button id="btn-copy-code" class="btn-icon-sm" title="Copiar código">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          </button>
+          <button id="btn-share-whatsapp" class="btn-icon-sm" title="Compartir en WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-12.99 7.77L3 22l2.23-5A9 9 0 1121 12z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lobby-players" id="lobby-players">
+        <div class="player-slot empty">Esperando jugadores...</div>
+      </div>
+      <div class="lobby-footer">
+        <div class="lobby-info">
+          <span id="player-count">1</span>/12 jugadores
+        </div>
+        <button id="btn-start-game" class="btn-primary btn-glow" disabled>
+          <span class="btn-icon">▶</span>
+          Empezar Partida
+        </button>
+      </div>
+    </div>
+
+    <!-- SCREEN: ROUND / INTERROGATION -->
+    <div id="screen-round" class="screen">
+      <div class="round-header">
+        <div class="round-badge" id="round-badge">RONDA 1/5</div>
+        <button id="btn-mute" class="btn-icon-sm" title="Silenciar sonido">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        </button>
+      </div>
+
+      <div class="accusation-banner" id="accusation-banner">
+        <div class="accusation-label">⚡ ACUSACIÓN ⚡</div>
+        <div class="accusation-text" id="accusation-text"></div>
+      </div>
+
+      <div class="role-reveal" id="role-reveal">
+        <div class="role-icon" id="role-icon">🕵️</div>
+        <div class="role-title" id="role-title">DETECTIVE</div>
+        <div class="role-desc" id="role-desc">Debes descubrir la verdad</div>
+      </div>
+
+      <!-- Timer bar -->
+      <div class="timer-container">
+        <div class="timer-bar" id="timer-bar"></div>
+        <div class="timer-text" id="timer-text">60</div>
+      </div>
+
+      <!-- Power Cards -->
+      <div class="power-cards" id="power-cards"></div>
+
+      <!-- Chat area -->
+      <div class="chat-area" id="chat-area">
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-group">
+          <input type="text" id="chat-input" class="input-chat" placeholder="Escribe tu interrogatorio..." maxlength="200" autocomplete="off">
+          <button id="btn-send" class="btn-send">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN: DECISION -->
+    <div id="screen-decision" class="screen">
+      <div class="decision-header">
+        <div class="decision-label">⏳ DECISIÓN ⏳</div>
+        <div class="decision-sub">Elige cuál fue el detalle REAL</div>
+        <div class="decision-timer" id="decision-timer">
+          <span class="decision-timer-text" id="decision-timer-text">15</span>s
+        </div>
+      </div>
+      <div class="accusation-reminder" id="accusation-reminder"></div>
+      <div class="options-list" id="options-list"></div>
+    </div>
+
+    <!-- SCREEN: REVELATION -->
+    <div id="screen-revelation" class="screen">
+      <div class="revelation-content" id="revelation-content">
+        <div class="stamp-container" id="stamp-container">
+          <div class="stamp-busted" id="stamp-busted">BUSTED</div>
+          <div class="stamp-libre" id="stamp-libre">LIBRE</div>
+        </div>
+        <div class="flash-overlay" id="flash-overlay"></div>
+        <div class="revelation-detail" id="revelation-detail">
+          <div class="revelation-truth-label">🔎 LA VERDAD ERA:</div>
+          <div class="revelation-truth" id="revelation-truth"></div>
+          <div class="revelation-quote" id="revelation-quote"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN: REPORT CARD -->
+    <div id="screen-report" class="screen">
+      <div class="report-card" id="report-card">
+        <div class="report-header">
+          <div class="report-badge">INFORME POLICIAL</div>
+          <div class="report-case">CASO #<span id="report-case-num">001</span></div>
+        </div>
+        <div class="report-body">
+          <div class="report-section">
+            <span class="report-label">SOSPECHOSO:</span>
+            <span class="report-value" id="report-suspect">---</span>
+          </div>
+          <div class="report-section">
+            <span class="report-label">VEREDICTO:</span>
+            <span class="report-value verdict-busted" id="report-verdict">CULPABLE</span>
+          </div>
+          <div class="report-section">
+            <span class="report-label">DETECTIVE:</span>
+            <span class="report-value" id="report-detective">---</span>
+          </div>
+          <div class="report-divider"></div>
+          <div class="report-score-section">
+            <div class="report-score" id="report-score-1"></div>
+            <div class="report-score" id="report-score-2"></div>
+          </div>
+        </div>
+        <div class="report-footer">
+          <div class="report-quote" id="report-quote-text">"La verdad siempre sale a la luz"</div>
+          <div class="report-actions">
+            <button id="btn-share-report" class="btn-primary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Compartir
+            </button>
+            <button id="btn-next-round" class="btn-secondary btn-sm">Siguiente Ronda →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN: RANKING FINAL -->
+    <div id="screen-ranking" class="screen">
+      <div class="ranking-content">
+        <div class="ranking-header">
+          <div class="ranking-trophy">🏆</div>
+          <h2 class="ranking-title">RANKING FINAL</h2>
+        </div>
+        <div class="ranking-list" id="ranking-list"></div>
+        <div class="ranking-actions">
+          <button id="btn-rematch" class="btn-primary btn-glow">
+            <span class="btn-icon">🔄</span>
+            Revancha
+          </button>
+          <button id="btn-home" class="btn-secondary">
+            <span class="btn-icon">🏠</span>
+            Volver al Inicio
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERROR TOAST -->
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <!-- Socket.IO client -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- App scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/socket.js"></script>
+  <script src="js/share.js"></script>
+  <script src="js/screens.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
