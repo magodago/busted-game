@@ -303,23 +303,23 @@ function startRound(io, room, game, socketMap) {
     accusation: roundData.accusation,
     suspectId: roundData.suspectId,
     interrogatorIds: roundData.interrogatorIds,
-    timeLimit: 15,
+    timeLimit: 180,
   });
 
-  // Phase 1: Interrogation (15s for fast gameplay)
-  game.setTimerSeconds(15);
-  room.startTimer(15, (secondsLeft) => {
+  // Phase 1: Interrogation (180s = 3 min)
+  game.setTimerSeconds(180);
+  room.startTimer(180, (secondsLeft) => {
     game.setTimerSeconds(secondsLeft);
     io.to(room.code).emit('timer_tick', { secondsLeft });
 
     if (secondsLeft === 0) {
       // Phase 2: Voting (30s)
       game.roundState = 'voting';
-      game.setVotingTimer(10);
+      game.setVotingTimer(30);
       io.to(room.code).emit('interrogation_end', {});
-      io.to(room.code).emit('voting_start', { timeLimit: 10 });
+      io.to(room.code).emit('voting_start', { timeLimit: 30 });
 
-      room.startTimer(10, (voteSeconds) => {
+      room.startTimer(30, (voteSeconds) => {
         game.setVotingTimer(voteSeconds);
         io.to(room.code).emit('voting_timer', { secondsLeft: voteSeconds });
 

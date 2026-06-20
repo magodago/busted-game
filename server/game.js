@@ -302,7 +302,7 @@ class Game {
       options: this.roundData.currentOptions.map(o => o.text),
       suspectId,
       interrogatorIds,
-      timeLimit: 60,
+      timeLimit: 180,
     };
   }
 
